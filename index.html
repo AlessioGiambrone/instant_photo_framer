@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Instant photo frame generator</title>
+    <script src="./lib/jspdf.min.js"></script>
+    <script src="./src/instant_photo_framer.js"></script>
+  </head>
+  <style>
+      * {
+        font-family: Verdana, Geneva, sans-serif;
+      }
+      body {
+        padding: 1em;
+      }
+      h1 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        text-decoration: underline;
+      }
+      p {
+        max-width: 30em;
+      }
+      form {
+        width: 30em;
+      }
+      span {
+        line-height: 2em;
+      }
+  </style>
+  <body>
+    <script>
+      function generatepdf(form_data){
+        frame = form_data[0].value;
+        format = form_data[2].value;
+        intensity = form_data[3].value;
+        n = form_data[1].value;
+        getPdf(format, frame, n);
+      }
+    </script>
+    <h1>the Instant Photo Frame Generator</h1>
+    <hline>
+    <p>
+    Put your instant photos in a real frame!<br>
+    Just write its dimensions below, the number of photos that you want in it
+    (pay attention that they must fit inside!) and their format.
+    <br>
+    Print the resulting PDF, cut the outside and along the dashed lines and
+    frame it!
+    <br>
+    <form>
+      <div>
+        <span>Frame dimensions (in cm)</span>
+        <input id="frameinput" type="text" value="10x15">
+      </div>
+      <div>
+        <span>Number of photos:</span>
+        <input id="numberinput" type="number" value="1">
+      </div>
+      <div>
+        <span>Photo format:</span>
+        <select>
+          <option value="fuji_instax_wide" checked>Fuji Instax Wide</option>
+          <option value="fuji_instax_wide_h" checked>Fuji Instax Wide (horizontal)</option>
+          <option value="fuji_instax_mini" checked>Fuji Instax Mini</option>
+          <option value="fuji_instax_mini_h" checked>Fuji Instax Mini (horizontal)</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <span>Draw intensity:</span>
+        <input type="range" name="intensity" min="1" max="10" value="3">
+      </div>
+      <button type="button" onclick="generatepdf(this.form)">generate PDF</button>
+    </form>
+  </body>
