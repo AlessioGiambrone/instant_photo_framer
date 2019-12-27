@@ -1,4 +1,4 @@
-# instant_photo_framer
+# instant photo framer
 
 generate a printable template with which you can frame your instant photos.
 
