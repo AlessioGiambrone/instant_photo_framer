@@ -8,7 +8,7 @@ Go [here](https://alessiogiambrone.github.io/instant_photo_framer/index.html) to
 
 ## TODOs
 
-[] add support to Polaroid photo format
-[] add support for multiple photo rows
-[] add support to multiple formats in the same frame
-[] ...?
+- add support to Polaroid photo format (and others as well)
+- add support for multiple photo rows
+- add support to multiple formats in the same frame
+- ...?
