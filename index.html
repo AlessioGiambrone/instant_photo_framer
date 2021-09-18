@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Instant photo frame generator</title>
-    <script src="./lib/jspdf.min.js"></script>
+    <script src="./lib/jspdf.umd.min.js"></script>
     <script src="./src/instant_photo_framer.js"></script>
   </head>
   <style>
@@ -35,6 +35,7 @@
         intensity = form_data[3].value;
         n = form_data[1].value;
         getPdf(format, frame, n);
+        document.reload()
       }
     </script>
     <h1>the Instant Photo Frame Generator</h1>
@@ -72,4 +73,12 @@
       </div>
       <button type="button" onclick="generatepdf(this.form)">generate PDF</button>
     </form>
+    <script type="text/javascript">
+			var jsPDF = window.jspdf.jsPDF;
+			$(document).ready(function() {
+				if(jsPDF && jsPDF.version) {
+					$('#dversion').text('Version ' + jsPDF.version);
+				}
+			});
+		</script>
   </body>
